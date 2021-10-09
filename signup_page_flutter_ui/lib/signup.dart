@@ -6,7 +6,7 @@ class SettingsUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Update Profile",
+      title: "Signup Profile",
       home: EditProfilePage(),
     );
   }
@@ -23,7 +23,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
+
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: GestureDetector(
@@ -35,9 +35,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
               Text(
                 "Profile",
                 style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black54),
+                  fontFamily: 'Akronim',
+                    fontSize: 35,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.blue,
+                ),
+
               ),
               SizedBox(
                 height: 15,
@@ -57,7 +60,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             BoxShadow(
                                 spreadRadius: 2,
                                 blurRadius: 10,
-                                color: Colors.black.withOpacity(0.1)),
+                                color: Colors.blue),
                           ],
                           shape: BoxShape.circle,
                           image: DecorationImage(
@@ -65,53 +68,34 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               image: AssetImage("image/2.jpg"
                               ))),
                     ),
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            width: 4,
-                            color: Theme.of(context).scaffoldBackgroundColor,
-                          ),
-                          color: Colors.brown[500],
-                        ),
-                        child: Icon(
-                          Icons.edit,
-                          color: Colors.white,
-                        ),
-                      ),
-                    )
                   ],
                 ),
               ),
               SizedBox(
-                height: 35,
+                height: 15,
               ),
               buildTextField("","Username", false),
               buildTextField("", "E-mail", false),
-              buildTextField("", "Password", false),
-              buildTextField("", "Confirm Password", false),
+              buildTextField("", "Password", true),
+              buildTextField("", "Confirm Password", true),
               SizedBox(
-                height: 35,
+                height: 15,
               ),
 
+              RaisedButton(
+                  onPressed: () {},
+                  color: Colors.blueAccent,
+                  padding: EdgeInsets.symmetric(horizontal: 50.0),
 
-                  RaisedButton(
-                      onPressed: () {},
-                      color: Colors.brown[500],
-                      padding: EdgeInsets.symmetric(horizontal: 50),
-
-                      elevation: 2,
-                      child: Text("Update",
-                          style: TextStyle(
-                              fontSize: 14,
-                              letterSpacing: 2.2,
-                              color: Colors.white))
-                  ),
+                  elevation: 2,
+                  child: Text("Signup",
+                      style: TextStyle(
+                          fontFamily: 'Ephesis',
+                          fontWeight: FontWeight.w400,
+                          fontSize: 22,
+                          letterSpacing: 2.2,
+                          color: Colors.white))
+              ),
             ],
           ),
         ),
@@ -128,15 +112,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
           decoration: InputDecoration(
             suffixIcon: isPasswordTextField
                 ? IconButton(
-                    onPressed: () {
-                      setState(() {
-                        showPassword = !showPassword;
-                      });
-                    },
-                    icon: Icon(
-                      Icons.remove_red_eye,
-                      color: Colors.grey,
-                    ))
+                onPressed: () {
+                  setState(() {
+                    showPassword = !showPassword;
+                  });
+                },
+                icon: Icon(
+                  Icons.remove_red_eye,
+                  color: Colors.grey,
+                ))
                 : null,
             contentPadding: EdgeInsets.only(bottom: 3),
             labelText: labelText,

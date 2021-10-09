@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_profile/edit_profile.dart';
+import 'package:flutter_profile/signup.dart';
 
 void main() {
   runApp(SettingsUI());
