@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -94,6 +96,24 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           letterSpacing: 2.2,
                           color: Colors.white))
               ),
+              SizedBox(
+                height: 25.0,
+                child: Divider(
+                  color: Colors.grey,
+                  thickness: 4.0,
+                ),
+              ),
+              Center(
+                child: Text("don't have an account? ",
+                  style: TextStyle(
+                      fontFamily: 'Ephesis',
+                      fontWeight: FontWeight.w400,
+                      fontSize: 13,
+                      letterSpacing: 1.1,
+                      color: Colors.green),
+                ),
+              ),
+
             ],
           ),
         ),
