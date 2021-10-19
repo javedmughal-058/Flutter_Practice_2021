@@ -1,2 +1,3 @@
-# Flutter_Practice_2021
- This is just for Flutter practice.
+# Sign Up Page
+
+<img src="Preview-Design/Signup.png " >
