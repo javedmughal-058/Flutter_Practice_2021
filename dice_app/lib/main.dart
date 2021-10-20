@@ -114,6 +114,11 @@ class _DicePageState extends State<DicePage> {
                     winner=score4;
                     WinnerNumber=4;
                   }
+                  if(c1>=10&&c2>=10&&c3>=10&&c4>=10){
+                     score=0;score2=0;score3=0;score4=0;
+                     winner=0;WinnerNumber=0;
+                     c4=0;
+                  }
 
 
                 },
