@@ -31,39 +31,7 @@ class _DicePageState extends State<DicePage> {
   int score=0,score2=0,score3=0,score4=0;
   int winner=0,WinnerNumber=0;
   bool button = false;
-void updatep1(){
-  c1=c1+1;
-  score=score+number;
-  if(score>score2 && score>score3 && score>score4 ){
-    winner=score;
-    WinnerNumber=1;
 
-  }
-}
-  void updatep2(){
-    if(score2>score && score2>score3 && score2>score4 ){
-      c2=c2+1;
-      score2=score2+number2;
-      winner=score2;
-      WinnerNumber=2;
-    }
-  }
-  void updatep3(){
-    if(score3>score && score3>score2 && score3>score4 ){
-      c3=c3+1;
-      score3=score3+number3;
-      winner=score3;
-      WinnerNumber=3;
-    }
-  }
-  void updatep4(){
-    if(score4>score && score4>score2 && score4>score3 ){
-      c4=c4+1;
-      score4=score4+number4;
-      winner=score4;
-      WinnerNumber=4;
-    }
-}
 void disable(){
   setState(() {
     button = true;
@@ -83,7 +51,12 @@ void disable(){
                 onTap: () {
                   setState(() {
                     number = Random().nextInt(6) + 1;
-                    updatep1();
+                    c1=c1+1;
+                    score=score+number;
+                    if(score>score2 && score>score3 && score>score4 ){
+                      winner=score;
+                      WinnerNumber=1;
+                    }
                   }
                   );
                 },
@@ -99,8 +72,12 @@ void disable(){
                 onTap: () {
                   setState(() {
                     number2 = Random().nextInt(6) + 1;
-
-                    updatep2();
+                    c2=c2+1;
+                    score2=score2+number2;
+                    if(score2>score && score2>score3 && score2>score4 ){
+                      winner=score2;
+                      WinnerNumber=2;
+                    }
                   }
                   );
                 },
@@ -116,7 +93,12 @@ void disable(){
                 onTap: () {
                   setState(() {
                     number3 = Random().nextInt(6) + 1;
-                    updatep3();
+                    c3=c3+1;
+                    score3=score3+number3;
+                    if(score3>score && score3>score2 && score3>score4 ){
+                      winner=score3;
+                      WinnerNumber=3;
+                    }
                   }
                   );
                 },
@@ -132,7 +114,12 @@ void disable(){
                 onTap: () {
                   setState(() {
                     number4 = Random().nextInt(6) + 1;
-                    updatep4();
+                    c4=c4+1;
+                    score4=score4+number4;
+                    if(score4>score && score4>score2 && score4>score3 ){
+                      winner=score4;
+                      WinnerNumber=4;
+                    }
                   }
                   );
 
@@ -141,7 +128,7 @@ void disable(){
             ),
           ],
         ),
-        SizedBox(
+            SizedBox(
           height: 20.0,
         ),
         Row(
@@ -220,7 +207,6 @@ void disable(){
             ),
           ],
         ),
-
 
         Padding(
           padding: EdgeInsets.only(top:12 ,right:150),
