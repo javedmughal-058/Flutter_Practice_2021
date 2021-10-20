@@ -50,12 +50,16 @@ void updatep1(){
   }
   void updatep3(){
     if(score3>score && score3>score2 && score3>score4 ){
+      c3=c3+1;
+      score3=score3+number3;
       winner=score3;
       WinnerNumber=3;
     }
   }
   void updatep4(){
     if(score4>score && score4>score2 && score4>score3 ){
+      c4=c4+1;
+      score4=score4+number4;
       winner=score4;
       WinnerNumber=4;
     }
@@ -95,6 +99,7 @@ void disable(){
                 onTap: () {
                   setState(() {
                     number2 = Random().nextInt(6) + 1;
+
                     updatep2();
                   }
                   );
@@ -111,8 +116,7 @@ void disable(){
                 onTap: () {
                   setState(() {
                     number3 = Random().nextInt(6) + 1;
-                    c3=c3+1;
-                    score3=score3+number3;
+                    updatep3();
                   }
                   );
                 },
@@ -128,8 +132,7 @@ void disable(){
                 onTap: () {
                   setState(() {
                     number4 = Random().nextInt(6) + 1;
-                    c4=c4+1;
-                    score4=score4+number4;
+                    updatep4();
                   }
                   );
 
