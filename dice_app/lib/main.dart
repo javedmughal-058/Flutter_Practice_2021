@@ -29,6 +29,7 @@ class _DicePageState extends State<DicePage> {
   int number=1,number2=1,number3=1,number4=1;
   int c1=0,c2=0,c3=0,c4=0;
   int score=0,score2=0,score3=0,score4=0;
+  int winner=0,WinnerNumber=0;
   Widget build(BuildContext context) {
     return Container(
       child: Column(
@@ -49,7 +50,6 @@ class _DicePageState extends State<DicePage> {
                 },
               ),
             ),
-
             SizedBox(
               width: 20.0,
             ),
@@ -98,6 +98,24 @@ class _DicePageState extends State<DicePage> {
                     score4=score4+number4;
                   }
                   );
+                  if(score>score2 && score>score3 && score>score4 ){
+                    winner=score;
+                    WinnerNumber=1;
+                  }
+                  if(score2>score && score2>score3 && score2>score4 ){
+                  winner=score2;
+                  WinnerNumber=2;
+                  }
+                  if(score3>score && score3>score2 && score3>score4 ){
+                    winner=score3;
+                    WinnerNumber=3;
+                  }
+                  if(score4>score && score4>score2 && score4>score3 ){
+                    winner=score4;
+                    WinnerNumber=4;
+                  }
+
+
                 },
               ),
             ),
@@ -124,7 +142,7 @@ class _DicePageState extends State<DicePage> {
               ),
             ),
             SizedBox(
-              width: 90.0,
+              width: 70.0,
             ),
             Text('Score:${score3}',
               style: TextStyle(
@@ -133,7 +151,7 @@ class _DicePageState extends State<DicePage> {
               ),
             ),
             SizedBox(
-              width: 90.0,
+              width: 80.0,
             ),
             Text('Score:${score4}',
               style: TextStyle(
@@ -143,25 +161,74 @@ class _DicePageState extends State<DicePage> {
             ),
           ],
         ),
-        Padding(
-          padding: EdgeInsets.only(top:90 ,right:150),
-          child: Text('Winner: ',
-            style: TextStyle(
-              fontSize: 26,
-              color: Colors.white,
+
+
+        Row(
+          children: [
+            Text('Turn No.${c1}',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+              ),
             ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top:12 ,right:150),
-          child: Text('Winner_Score: ${score}',
-            style: TextStyle(
-              fontSize: 26,
-              color: Colors.white,
+            SizedBox(
+              width: 70.0,
             ),
-          ),
+            Text('Turn No.${c2}',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(
+              width: 50.0,
+            ),
+            Text('Turn No.${c3}',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(
+              width: 55.0,
+            ),
+            Text('Turn No.${c4}',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
 
+
+        Padding(
+          padding: EdgeInsets.only(top:12 ,right:150),
+          child: Text('Winner_Score: ${winner}',
+            style: TextStyle(
+              fontSize: 26,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top:90 ,right:150),
+          child: Text('Winner is Player:${WinnerNumber} ',
+            style: TextStyle(
+              fontSize: 26,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top:90 ,right:150),
+          child: Text('Total Tries:${c4} ',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+            ),
+          ),
+        ),
 
       ],
     ),
