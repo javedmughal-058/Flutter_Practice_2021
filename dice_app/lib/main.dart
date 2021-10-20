@@ -30,6 +30,42 @@ class _DicePageState extends State<DicePage> {
   int c1=0,c2=0,c3=0,c4=0;
   int score=0,score2=0,score3=0,score4=0;
   int winner=0,WinnerNumber=0;
+  bool button = false;
+void updatep1(){
+  c1=c1+1;
+  score=score+number;
+  if(score>score2 && score>score3 && score>score4 ){
+    winner=score;
+    WinnerNumber=1;
+
+  }
+}
+  void updatep2(){
+    if(score2>score && score2>score3 && score2>score4 ){
+      c2=c2+1;
+      score2=score2+number2;
+      winner=score2;
+      WinnerNumber=2;
+    }
+  }
+  void updatep3(){
+    if(score3>score && score3>score2 && score3>score4 ){
+      winner=score3;
+      WinnerNumber=3;
+    }
+  }
+  void updatep4(){
+    if(score4>score && score4>score2 && score4>score3 ){
+      winner=score4;
+      WinnerNumber=4;
+    }
+}
+void disable(){
+  setState(() {
+    button = true;
+  });
+}
+
   Widget build(BuildContext context) {
     return Container(
       child: Column(
@@ -43,8 +79,7 @@ class _DicePageState extends State<DicePage> {
                 onTap: () {
                   setState(() {
                     number = Random().nextInt(6) + 1;
-                    c1=c1+1;
-                    score=score+number;
+                    updatep1();
                   }
                   );
                 },
@@ -60,8 +95,7 @@ class _DicePageState extends State<DicePage> {
                 onTap: () {
                   setState(() {
                     number2 = Random().nextInt(6) + 1;
-                    c2=c2+1;
-                    score2=score2+number2;
+                    updatep2();
                   }
                   );
                 },
@@ -98,28 +132,6 @@ class _DicePageState extends State<DicePage> {
                     score4=score4+number4;
                   }
                   );
-                  if(score>score2 && score>score3 && score>score4 ){
-                    winner=score;
-                    WinnerNumber=1;
-                  }
-                  if(score2>score && score2>score3 && score2>score4 ){
-                  winner=score2;
-                  WinnerNumber=2;
-                  }
-                  if(score3>score && score3>score2 && score3>score4 ){
-                    winner=score3;
-                    WinnerNumber=3;
-                  }
-                  if(score4>score && score4>score2 && score4>score3 ){
-                    winner=score4;
-                    WinnerNumber=4;
-                  }
-                  if(c1>=10&&c2>=10&&c3>=10&&c4>=10){
-                     score=0;score2=0;score3=0;score4=0;
-                     winner=0;WinnerNumber=0;
-                     c4=0;
-                  }
-
 
                 },
               ),
