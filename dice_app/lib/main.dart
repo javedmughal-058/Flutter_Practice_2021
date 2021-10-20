@@ -1,23 +1,22 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-
-
 void main() {
   return runApp(
     MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blue,
         appBar: AppBar(
-          title: Text('Dice'),
-          backgroundColor: Colors.red,
+          title: Center(child:
+              Text('Dice Rolling App')
+          ),
+
         ),
         body: DicePage(),
       ),
     ),
   );
 }
-
 class DicePage extends StatefulWidget {
   final myController = TextEditingController();
 
@@ -27,9 +26,9 @@ class DicePage extends StatefulWidget {
 
 class _DicePageState extends State<DicePage> {
 
-  int number=1,number2=1;
-  int c1=0,c2=0;
-  int score=0,score2=0;
+  int number=1,number2=1,number3=1,number4=1;
+  int c1=0,c2=0,c3=0,c4=0;
+  int score=0,score2=0,score3=0,score4=0;
   Widget build(BuildContext context) {
     return Container(
       child: Column(
@@ -53,9 +52,7 @@ class _DicePageState extends State<DicePage> {
 
             SizedBox(
               width: 20.0,
-
             ),
-
             Expanded(
               child:
               GestureDetector(
@@ -70,6 +67,40 @@ class _DicePageState extends State<DicePage> {
                 },
               ),
             ),
+            SizedBox(
+              width: 20.0,
+            ),
+            Expanded(
+              child:
+              GestureDetector(
+                child: Image.asset('images/dice$number3.png'),
+                onTap: () {
+                  setState(() {
+                    number3 = Random().nextInt(6) + 1;
+                    c3=c3+1;
+                    score3=score3+number3;
+                  }
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              width: 20.0,
+            ),
+            Expanded(
+              child:
+              GestureDetector(
+                child: Image.asset('images/dice$number4.png'),
+                onTap: () {
+                  setState(() {
+                    number4 = Random().nextInt(6) + 1;
+                    c4=c4+1;
+                    score4=score4+number4;
+                  }
+                  );
+                },
+              ),
+            ),
           ],
         ),
         SizedBox(
@@ -77,16 +108,34 @@ class _DicePageState extends State<DicePage> {
         ),
         Row(
           children: [
-            Text('Total Score:${score}',
+            Text('Score:${score}',
             style: TextStyle(
               fontSize: 16,
               color: Colors.white,
             ),
           ),
             SizedBox(
-              width: 190.0,
+              width: 90.0,
             ),
-            Text('Total Score:${score2}',
+            Text('Score:${score2}',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(
+              width: 90.0,
+            ),
+            Text('Score:${score3}',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(
+              width: 90.0,
+            ),
+            Text('Score:${score4}',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.white,
