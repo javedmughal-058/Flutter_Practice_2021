@@ -7,11 +7,11 @@ void main() {
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+            backgroundColor: Colors.indigo,
           title: Center(child:
-              Text('Dice Rolling App')
-          ),
+              Text('Dice Rolling App'),
 
-
+          )
         ),
         body: DicePage(),
       ),
@@ -262,7 +262,7 @@ class _DicePageState extends State<DicePage> {
             Text('Turn No.${c1}',
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.white,
+                color: Colors.red,
               ),
             ),
             SizedBox(
@@ -271,7 +271,7 @@ class _DicePageState extends State<DicePage> {
             Text('Turn No.${c2}',
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.white,
+                color: Colors.green,
               ),
             ),
             SizedBox(
@@ -280,7 +280,7 @@ class _DicePageState extends State<DicePage> {
             Text('Turn No.${c3}',
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.white,
+                color: Colors.yellow,
               ),
             ),
             SizedBox(
@@ -289,7 +289,7 @@ class _DicePageState extends State<DicePage> {
             Text('Turn No.${c4}',
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.white,
+                color: Colors.blue,
               ),
             ),
           ],
