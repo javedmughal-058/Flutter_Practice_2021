@@ -32,11 +32,63 @@ class _DicePageState extends State<DicePage> {
   int winner=0,WinnerNumber=0;
   bool button = false;
 
-void disable(){
-  setState(() {
-    button = true;
-  });
-}
+  void updatep1(){
+    if(number==6){
+      c1=c1+0;
+      score=score+number;
+    }
+    else {
+      c1=c1+1;
+      score=score+number;
+      if(score>score2 && score>score3 && score>score4 ){
+        winner=score;
+        WinnerNumber=1;
+      }
+    }
+  }
+  void updatep2(){
+    if(number2==6){
+      c2=c2+0;
+      score2 = score2 + number2;
+    }
+    else {
+      c2 = c2 + 1;
+      score2 = score2 + number2;
+      if (score2 > score && score2 > score3 && score2 > score4) {
+        winner = score2;
+        WinnerNumber = 2;
+      }
+    }
+  }
+  void updatep3(){
+    if(number3==6){
+      c3=c3+0;
+      score2 = score2 + number2;
+    }
+    else {
+      c3=c3+1;
+      score3=score3+number3;
+      if(score3>score && score3>score2 && score3>score4 ){
+        winner=score3;
+        WinnerNumber=3;
+      }
+    }
+  }
+  void updatep4(){
+    if(number3==6){
+      c3=c3+0;
+      score2 = score2 + number2;
+    }
+    else {
+      c4=c4+1;
+      score4=score4+number4;
+      if(score4>score && score4>score2 && score4>score3 ){
+        winner=score4;
+        WinnerNumber=4;
+      }
+    }
+  }
+
 
   Widget build(BuildContext context) {
     return Container(
@@ -51,13 +103,9 @@ void disable(){
                 onTap: () {
                   setState(() {
                     number = Random().nextInt(6) + 1;
-                    c1=c1+1;
-                    score=score+number;
-                    if(score>score2 && score>score3 && score>score4 ){
-                      winner=score;
-                      WinnerNumber=1;
+                    
                     }
-                  }
+
                   );
                 },
               ),
@@ -72,12 +120,6 @@ void disable(){
                 onTap: () {
                   setState(() {
                     number2 = Random().nextInt(6) + 1;
-                    c2=c2+1;
-                    score2=score2+number2;
-                    if(score2>score && score2>score3 && score2>score4 ){
-                      winner=score2;
-                      WinnerNumber=2;
-                    }
                   }
                   );
                 },
@@ -93,13 +135,7 @@ void disable(){
                 onTap: () {
                   setState(() {
                     number3 = Random().nextInt(6) + 1;
-                    c3=c3+1;
-                    score3=score3+number3;
-                    if(score3>score && score3>score2 && score3>score4 ){
-                      winner=score3;
-                      WinnerNumber=3;
                     }
-                  }
                   );
                 },
               ),
@@ -112,23 +148,16 @@ void disable(){
               GestureDetector(
                 child: Image.asset('images/dice$number4.png'),
                 onTap: () {
-                  setState(() {
-                    number4 = Random().nextInt(6) + 1;
-                    c4=c4+1;
-                    score4=score4+number4;
-                    if(score4>score && score4>score2 && score4>score3 ){
-                      winner=score4;
-                      WinnerNumber=4;
-                    }
-                  }
-                  );
-
-                },
+             setState(() {
+               number3 = Random().nextInt(6) + 1;
+              }
+              );
+              },
               ),
             ),
           ],
         ),
-            SizedBox(
+        SizedBox(
           height: 20.0,
         ),
         Row(
@@ -168,8 +197,6 @@ void disable(){
             ),
           ],
         ),
-
-
         Row(
           children: [
             Text('Turn No.${c1}',
@@ -235,7 +262,6 @@ void disable(){
             ),
           ),
         ),
-
       ],
     ),
 
