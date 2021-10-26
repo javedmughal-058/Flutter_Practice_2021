@@ -2,7 +2,7 @@
     package="com.example.xylophone_in_flutter">
    <application
         android:label="xylophone_in_flutter"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
