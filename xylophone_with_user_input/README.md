@@ -1,4 +1,4 @@
-# xylophone_with_user_input
+# try_xylophone
 
 A new Flutter project.
 

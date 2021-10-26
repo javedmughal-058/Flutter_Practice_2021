@@ -8,12 +8,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:xylophone_with_user_input/main.dart';
+import 'package:try_xylophone/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget( xylophone());
+    await tester.pumpWidget( MyApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
