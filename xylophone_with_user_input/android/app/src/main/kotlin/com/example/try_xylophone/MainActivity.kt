@@ -1,4 +1,4 @@
-package com.example.xylophone_with_user_input
+package com.example.try_xylophone
 
 import io.flutter.embedding.android.FlutterActivity
 

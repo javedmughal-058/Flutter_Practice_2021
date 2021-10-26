@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.xylophone_with_user_input">
+    package="com.example.try_xylophone">
    <application
-        android:label="xylophone_with_user_input"
+        android:label="try_xylophone"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
