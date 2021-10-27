@@ -2,7 +2,7 @@
 
 A new Flutter Design.
 
-![](images/picture_2.jpg)
-![](images/picture_1.jpg)
+<img src="images/picture_2.jpg" width=500>
+<img src="images/picture_1.jpg" width=500>
 
 
