@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: ' Main',
+      title: 'Main',
       debugShowCheckedModeBanner: false,
       home: DropDown(),
     );
@@ -98,7 +98,7 @@ class DropDownWidget extends State<DropDown> {
       appBar: AppBar(
         backgroundColor: Colors.deepOrange,
         title: Text(
-          'XyloPhone App',
+          'Xylophone Application',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -107,7 +107,7 @@ class DropDownWidget extends State<DropDown> {
       ),
       body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             SizedBox(
               height: 20.0,
