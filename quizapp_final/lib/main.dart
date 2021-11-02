@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'quiz_brain.dart';
+import 'package:quiver/async.dart';
+
 
 QuizBrain quizBrain = QuizBrain();
 
@@ -26,34 +27,60 @@ class Quizzler extends StatelessWidget {
 }
 
 class QuizPage extends StatefulWidget {
-
   @override
   _QuizPageState createState() => _QuizPageState();
+
 }
 
 class _QuizPageState extends State<QuizPage> {
+  final _formKey = GlobalKey<FormState>();
+  String answer;
+  int seconds;
+  @override
+  void initState() {
+    super.initState();
+    seconds = 60;
+    startTimer();
+  }
   List<Icon> scoreKeeper = [];
-
-  void checkAnswer(bool userPickedAnswer) {
-    bool correctAnswer = quizBrain.getCorrectAnswer();
-
-    setState(() {
-      //On the next line, you can also use if (quizBrain.isFinished()) {}, it does the same thing.
-      if (quizBrain.isFinished() == true) {
-
+  void startTimer(){
+    CountdownTimer(Duration(seconds: seconds), Duration(seconds: 1)).listen((data){
+    })..onData((data){
+      setState(() {
+        seconds--;
+      });
+    })..onDone((){
+      setState(() {
         Alert(
           context: context,
           title: 'Finished!',
-          desc: 'You\'ve reached the end of the quiz. \n Your Score=$score',
-
+          desc: 'You\'ve reached the end of the quiz. \n Your Score=$score\nTime Remianing:$seconds seconds',
         ).show();
-
         quizBrain.reset();
         scoreKeeper = [];
         q=1;
         score=0;
-      }
+      });
+    });
+  }
+  void checkAnswer(bool userPickedAnswer) {
+    bool correctAnswer = quizBrain.getCorrectAnswer();
+    setState(() {
+      //On the next line, you can also use if (quizBrain.isFinished()) {}, it does the same thing.
+      if (quizBrain.isFinished() == true ) {
+        score++;
+        Alert(
+          context: context,
+          title: 'Finished!',
+          desc: 'You\'ve reached the end of the quiz. \n Your Score=$score \n Time Remianing:$seconds seconds',
 
+        ).show();
+        quizBrain.reset();
+        scoreKeeper = [];
+        q=1;
+        score=0;
+
+      }
       else {
         if (userPickedAnswer == correctAnswer) {
           score=score+1;
@@ -61,34 +88,46 @@ class _QuizPageState extends State<QuizPage> {
             Icons.check,
             color: Colors.green,
           ));
-        } else {
+        }
+        else {
           scoreKeeper.add(Icon(
             Icons.close,
             color: Colors.red,
-          ));
+          )
+          );
         }
         quizBrain.nextQuestion();
       }
     });
   }
-
   @override
   Widget build(BuildContext context) {
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Expanded(
-            child: Center(
-              child: Text(
-                'Quiz Management System',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                ),
+          child: Center(
+            child: Text(
+              'Quiz Management System',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20.0,
               ),
             ),
+          ),
 
+        ),
+        Expanded(
+          child: Column(
+            children: <Widget>[
+              Text('Seconds left: $seconds',
+              style: TextStyle(
+                color: Colors.blue,
+                fontSize: 20.0,
+              ),
+              ),
+            ],
+          ),
         ),
         Expanded(
           child: Center(
@@ -120,41 +159,40 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Row(children: [
           Expanded(
-              child: FlatButton(
-                textColor: Colors.white,
-                color: Colors.green,
-                child: Text(
-                  'True',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                  ),
+            child: FlatButton(
+              textColor: Colors.white,
+              color: Colors.green,
+              child: Text(
+                'True',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.0,
                 ),
-                onPressed: () {
-                  q=q+1;
-                  //The user picked true.
-                  checkAnswer(true);
-
-                },
               ),
+              onPressed: () {
+                q = q + 1;
+                //The user picked true.
+                checkAnswer(true);
+              },
+            ),
 
           ),
           Expanded(
-              child: FlatButton(
-                color: Colors.red,
-                child: Text(
-                  'False',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    color: Colors.white,
-                  ),
+            child: FlatButton(
+              color: Colors.red,
+              child: Text(
+                'False',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white,
                 ),
-                onPressed: () {
-                  q=q+1;
-                  //The user picked false.
-                  checkAnswer(false);
-                },
               ),
+              onPressed: () {
+                q = q + 1;
+                //The user picked false.
+                checkAnswer(false);
+              },
+            ),
 
           ),
         ],
@@ -162,28 +200,24 @@ class _QuizPageState extends State<QuizPage> {
         Expanded(
           child: Padding(
             padding: EdgeInsets.all(10.0),
-              child: Text(
-                    'Score=$score',
-                style: TextStyle(
-                  fontSize: 25.0,
-                  color: Colors.white,
-                ),
+            child: Text(
+              'Score=$score',
+              style: TextStyle(
+                fontSize: 25.0,
+                color: Colors.white,
               ),
             ),
           ),
-
-
-
+        ),
         Row(
           children: scoreKeeper,
         )
+
       ],
     );
   }
+
+
 }
 
-/*
-question1: 'You can lead a cow down stairs but not up stairs.', false,
-question2: 'Approximately one quarter of human bones are in the feet.', true,
-question3: 'A slug\'s blood is green.', true,
-*/
+
