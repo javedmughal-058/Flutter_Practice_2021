@@ -6,7 +6,8 @@ import 'quiz_brain.dart';
 QuizBrain quizBrain = QuizBrain();
 
 void main() => runApp(Quizzler());
-
+int q=1;
+int score=0;
 class Quizzler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class Quizzler extends StatelessWidget {
 }
 
 class QuizPage extends StatefulWidget {
+
   @override
   _QuizPageState createState() => _QuizPageState();
 }
@@ -42,16 +44,19 @@ class _QuizPageState extends State<QuizPage> {
         Alert(
           context: context,
           title: 'Finished!',
-          desc: 'You\'ve reached the end of the quiz.',
+          desc: 'You\'ve reached the end of the quiz. \n Your Score=$score',
+
         ).show();
 
         quizBrain.reset();
-
         scoreKeeper = [];
+        q=1;
+        score=0;
       }
 
       else {
         if (userPickedAnswer == correctAnswer) {
+          score=score+1;
           scoreKeeper.add(Icon(
             Icons.check,
             color: Colors.green,
@@ -69,9 +74,34 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
+        Expanded(
+            child: Center(
+              child: Text(
+                'Quiz Management System',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.0,
+                ),
+              ),
+            ),
+
+        ),
+        Expanded(
+          child: Center(
+            child: Text(
+              'Question $q/10',
+              style: TextStyle(
+                color: Colors.blue,
+                fontSize: 20.0,
+              ),
+            ),
+          ),
+
+        ),
         Expanded(
 
           child: Padding(
@@ -90,8 +120,6 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Row(children: [
           Expanded(
-            child: Padding(
-              padding: EdgeInsets.all(15.0),
               child: FlatButton(
                 textColor: Colors.white,
                 color: Colors.green,
@@ -103,15 +131,15 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ),
                 onPressed: () {
+                  q=q+1;
                   //The user picked true.
                   checkAnswer(true);
+
                 },
               ),
-            ),
+
           ),
           Expanded(
-            child: Padding(
-              padding: EdgeInsets.all(15.0),
               child: FlatButton(
                 color: Colors.red,
                 child: Text(
@@ -122,13 +150,28 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ),
                 onPressed: () {
+                  q=q+1;
                   //The user picked false.
                   checkAnswer(false);
                 },
               ),
+
+          ),
+        ],
+        ),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+              child: Text(
+                    'Score=$score',
+                style: TextStyle(
+                  fontSize: 25.0,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
-        ],),
+
 
 
         Row(
