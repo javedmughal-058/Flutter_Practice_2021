@@ -60,12 +60,12 @@ class HomeScreenState extends State<HomeScreen> {
       ),
       body: Container(
           child: Column(children: [
-                    Text("Choose one of the given option to study the Alphabets.",
-                      style: TextStyle(
-                        color: Colors.green,
-                        fontSize: 20,
-                      ),
-                    ),
+            Text("Choose one of the given option to study the Alphabets.",
+              style: TextStyle(
+                color: Colors.green,
+                fontSize: 20,
+              ),
+            ),
             SizedBox(
               height: 30.0,
             ),
@@ -76,7 +76,7 @@ class HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => QuizPage()),
+                          builder: (context) => playScreen()),
                     );
                   },
                   child: Column(

@@ -14,7 +14,7 @@ void main() {
       // define the routes
       AccountScreen.routeName: (BuildContext context) => AccountScreen(),
       SettingsScreen.routeName: (BuildContext context) => SettingsScreen(),
-      QuizPage.routeName: (BuildContext context) => QuizPage(),
+      playScreen.routeName: (BuildContext context) => playScreen(),
 
     },
   ));
