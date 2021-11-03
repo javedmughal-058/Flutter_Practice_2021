@@ -54,11 +54,11 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Alphabet Card App for Kids"),
-        backgroundColor: Colors.indigo,
-      ),
-      body: Container(
+        appBar: AppBar(
+          title: Text("Alphabet Card App for Kids"),
+          backgroundColor: Colors.indigo,
+        ),
+        body: Container(
           child: Column(children: [
             Text("Choose one of the given option to study the Alphabets.",
               style: TextStyle(
@@ -70,63 +70,57 @@ class HomeScreenState extends State<HomeScreen> {
               height: 30.0,
             ),
             Row(children: [
-              Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => playScreen()),
-                    );
-                  },
-                  child: Column(
-                    children: <Widget>[
-                      Text("Capital A-Z",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),)
-                    ],
-                  ),
-
+              GestureDetector(
+                onTap:(){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => playScreen()),
+                  );
+                },
+                child: Container(
+                  height: 100.0,
+                  width: 100.0,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black26, offset: Offset(0, 2), blurRadius: 6.0)
+                      ],
+                      image: DecorationImage(image: AssetImage('images/A1.png'))),
                 ),
-
               ),
-              SizedBox(
-                width: 10.0,
-              ),
-              Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => playScreen1()),
-                    );
-                  },
-                  child: Column(
-                    children: <Widget>[
-                      Text("Small a-z",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),)
-                    ],
-                  ),
-
+              Text("Capital Alphabets"),
+              GestureDetector(
+                onTap:(){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => playScreen1()),
+                  );
+                },
+                child: Container(
+                  height: 100.0,
+                  width: 100.0,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black26, offset: Offset(0, 2), blurRadius: 6.0)
+                      ],
+                      image: DecorationImage(image: AssetImage('images/a.png'))),
                 ),
-
               ),
-            ],)
-
-
-
-          ])
-
-
-      ),
-      // Set the nav drawer
-      drawer: getNavDrawer(context),
+              Text("Small Alphabets"),
+            ]
+            )
+          ]
+          ),
+        )
     );
+
   }
+
 }
