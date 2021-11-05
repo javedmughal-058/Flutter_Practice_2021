@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'quiz_brain.dart';
 import 'package:quiver/async.dart';
+import 'answers.dart';
 
 
 QuizBrain quizBrain = QuizBrain();
@@ -9,6 +10,9 @@ QuizBrain quizBrain = QuizBrain();
 void main() => runApp(Quizzler());
 int q=1;
 int score=0;
+int trueans=0;
+int falseans=0;
+
 class Quizzler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -36,25 +40,45 @@ class _QuizPageState extends State<QuizPage> {
   final _formKey = GlobalKey<FormState>();
   String answer;
   int seconds;
+  int tseconds;
   @override
   void initState() {
     super.initState();
-    seconds = 60;
+    tseconds = 150;
+    seconds=15;
+
     startTimer();
+
+
   }
   List<Icon> scoreKeeper = [];
   void startTimer(){
-    CountdownTimer(Duration(seconds: seconds), Duration(seconds: 1)).listen((data){
+    CountdownTimer(Duration(seconds: tseconds), Duration(seconds: 1)).listen((data){
     })..onData((data){
       setState(() {
         seconds--;
+        if(seconds==0)
+          {
+            quizBrain.nextQuestion();
+            seconds=15;
+            score=score+0;
+            q = q + 1;
+            scoreKeeper.add(Icon(
+              Icons.close,
+              color: Colors.red,
+            )
+            );
+          }
+        tseconds--;
       });
     })..onDone((){
       setState(() {
         Alert(
           context: context,
           title: 'Finished!',
-          desc: 'You\'ve reached the end of the quiz. \n Your Score=$score\nTime Remianing:$seconds seconds',
+          desc: 'You\'ve reached the end of the quiz. \n Your Score=$score \n Time Remianing:$seconds seconds\n'
+              'True Answer=$score \n False Answer=$falseans'
+          ,
         ).show();
         quizBrain.reset();
         scoreKeeper = [];
@@ -65,14 +89,20 @@ class _QuizPageState extends State<QuizPage> {
   }
   void checkAnswer(bool userPickedAnswer) {
     bool correctAnswer = quizBrain.getCorrectAnswer();
+
+
     setState(() {
       //On the next line, you can also use if (quizBrain.isFinished()) {}, it does the same thing.
       if (quizBrain.isFinished() == true ) {
         score++;
+        falseans=10-score;
         Alert(
           context: context,
           title: 'Finished!',
-          desc: 'You\'ve reached the end of the quiz. \n Your Score=$score \n Time Remianing:$seconds seconds',
+          desc: 'You\'ve reached the end of the quiz. \n Your Score=$score \n Time Remianing:$seconds seconds\n'
+              'True Answer=$score \n False Answer=$falseans'
+
+          ,
 
         ).show();
         quizBrain.reset();
@@ -82,8 +112,10 @@ class _QuizPageState extends State<QuizPage> {
 
       }
       else {
+
         if (userPickedAnswer == correctAnswer) {
           score=score+1;
+          seconds = 15;
           scoreKeeper.add(Icon(
             Icons.check,
             color: Colors.green,
@@ -96,6 +128,7 @@ class _QuizPageState extends State<QuizPage> {
           )
           );
         }
+
         quizBrain.nextQuestion();
       }
     });
@@ -219,5 +252,6 @@ class _QuizPageState extends State<QuizPage> {
 
 
 }
+
 
 
