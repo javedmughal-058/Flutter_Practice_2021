@@ -38,10 +38,13 @@ class MyHomePage extends StatelessWidget {
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.blueAccent,
               ),
-              child: Text('Drawer Header'),
-
+              child: Text('Application Name',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),),
             ),
 
             ListTile(
@@ -51,6 +54,19 @@ class MyHomePage extends StatelessWidget {
                 fontSize: 16.0,
               ),
               ),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Account',
+                style: TextStyle(
+                  color: Colors.blueAccent,
+                  fontSize: 16.0,
+                ),),
               onTap: () {
                 // Update the state of the app
                 // ...
@@ -71,6 +87,33 @@ class MyHomePage extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+            ListTile(
+              title: const Text('About us',
+                style: TextStyle(
+                  color: Colors.blueAccent,
+                  fontSize: 16.0,
+                ),),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('App info',
+                style: TextStyle(
+                  color: Colors.blueAccent,
+                  fontSize: 16.0,
+                ),),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+
           ],
         ),
       ),
