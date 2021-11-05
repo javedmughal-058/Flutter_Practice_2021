@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'quiz_brain.dart';
 import 'package:quiver/async.dart';
-import 'answers.dart';
 
 
 QuizBrain quizBrain = QuizBrain();
@@ -37,7 +36,7 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  final _formKey = GlobalKey<FormState>();
+
   String answer;
   int seconds;
   int tseconds;
