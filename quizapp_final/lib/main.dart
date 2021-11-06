@@ -191,13 +191,17 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Row(children: [
           Expanded(
-            child: FlatButton(
-              textColor: Colors.white,
-              color: Colors.green,
+            child: TextButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.resolveWith(
+              (state) => Colors.green),
+              foregroundColor: MaterialStateProperty.resolveWith(
+              (state) => Colors.orange)),
               child: Text(
                 'True',
                 style: TextStyle(
                   color: Colors.white,
+
                   fontSize: 20.0,
                 ),
               ),
