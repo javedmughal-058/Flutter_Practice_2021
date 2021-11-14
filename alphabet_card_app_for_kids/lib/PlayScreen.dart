@@ -69,6 +69,7 @@ List<String> smallAlphabets = [
   'z',
 ];
 int count = 0;
+int alphacount=1;
 bool num = false;
 
 int seconds = 5;
@@ -99,10 +100,11 @@ class _PlayScreenState extends State<PlayScreen> {
           } else {
             _timer.cancel();
             // ignore: avoid_print
-            print('Timer is completed');
+            print('Time Ended');
             setState(() {
               if (count < CapitalAlphabets.length - 1) {
                 count++;
+                alphacount++;
                 seconds = 5;
                 startTimer();
               }
@@ -116,25 +118,102 @@ class _PlayScreenState extends State<PlayScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.amberAccent,
+        backgroundColor: Colors.white,
         drawer: Drawer(
-          child: ListView(
-            children: const [
-              DrawerHeader(
-                  decoration: BoxDecoration(color: Colors.amberAccent),
+            // Add a ListView to the drawer. This ensures the user can scroll
+            // through the options in the drawer if there isn't enough vertical
+            // space to fit everything.
+            child: ListView(
+              // Important: Remove any padding from the ListView.
+              padding: EdgeInsets.zero,
+              children: [
+                const DrawerHeader(
+                decoration: BoxDecoration(color: Colors.orange),
+                child: CircleAvatar(
+                  radius: 40,
+                  backgroundColor: Colors.white70,
                   child: CircleAvatar(
-                    radius: 40,
-                    backgroundColor: Colors.white70,
-                    child: CircleAvatar(
-                      radius: 44,
-                      backgroundImage: AssetImage('images/card.png'),
-                    ),
-                  ))
-            ],
+                    radius: 74,
+                    backgroundImage: AssetImage('images/download.png'),
+                  ),
+                )
           ),
+                ListTile(
+                  title: const Text('Main Screen',
+                    style: TextStyle(
+                      color: Colors.orange,
+                      fontSize: 18.0,
+                    ),
+                  ),
+                  onTap: () {
+                    // Update the state of the app
+                    // ...
+                    // Then close the drawer
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyHomePage()),
+                    );
+                  },
+                ),
+                const SizedBox(
+                  height: 14,
+                  child: Divider(
+                    color: Colors.black,
+                  ),
+                ),
+          ListTile(
+            title: const Text('Capital A-Z',
+              style: TextStyle(
+                color: Colors.orange,
+                fontSize: 18.0,
+              ),
+            ),
+            onTap: () {
+              // Update the state of the app
+              // ...
+              // Then close the drawer
+              alphaCase = true;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PlayScreen()),
+              );
+            },
+          ),
+                const SizedBox(
+                  height: 14,
+                  child: Divider(
+                    color: Colors.black,
+                  ),
+                ),
+          ListTile(
+            title: const Text('small a-z',
+              style: TextStyle(
+                color: Colors.orange,
+                fontSize: 18.0,
+              ),),
+            onTap: () {
+              // Update the state of the app
+              // ...
+              // Then close the drawer
+              alphaCase = false;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PlayScreen()),
+              );
+            },
+          ),
+                const SizedBox(
+                  height: 14,
+                  child: Divider(
+                    color: Colors.black,
+                  ),
+                ),
+        ]
+            ),
         ),
+
         appBar: AppBar(
-          title: const Text('Play Time'),
+          title: const Text('Learn Alphabets'),
         ),
         body: Container(
           width: MediaQuery.of(context).size.width,
@@ -153,20 +232,83 @@ class _PlayScreenState extends State<PlayScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      ' $seconds',
+                      'Time Left: $seconds',
                       style: const TextStyle(
-                          color: Colors.white,
+                          color: Colors.teal,
                           fontSize: 20,
                           fontWeight: FontWeight.w400),
                     ),
                     const SizedBox(
-                      height: 12,
+                      height: 14,
                       child: Divider(
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                   ],
                 ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                      FloatingActionButton(
+                          elevation: 20,
+                          backgroundColor: Colors.amberAccent,
+                          child: const Icon(
+                            Icons.arrow_back,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              if (count < CapitalAlphabets.length - 1) {
+                                count--;
+                                alphacount--;
+                                seconds = 5;
+                                startTimer();
+                              }
+                            });
+                          }),
+                      const SizedBox(
+                        width: 320,
+                      ),
+                      FloatingActionButton(
+                          elevation: 20,
+                          backgroundColor: Colors.amberAccent,
+                          child: const Icon(
+                            Icons.forward,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              if (count < CapitalAlphabets.length - 1) {
+                                count++;
+                                alphacount++;
+                                seconds = 5;
+                                startTimer();
+                              }
+                            });
+                          }),
+                ],
+              ),
+              Row(
+                children: [
+                  const SizedBox(
+                    width: 24,
+                  ),
+                  Text('Previous',
+                    style: const TextStyle(
+                        color: Colors.teal,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400),),
+                  const SizedBox(
+                    width: 320,
+                  ),
+                  Text('Next',
+                    style: const TextStyle(
+                        color: Colors.teal,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400),),
+                ],
               ),
               const SizedBox(
                 height: 60,
@@ -175,60 +317,19 @@ class _PlayScreenState extends State<PlayScreen> {
                   ? Text(
                       '${CapitalAlphabets[count]}',
                       style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 60,
+                          color: Colors.blue,
+                          fontSize: 120,
                           fontWeight: FontWeight.w600),
                     )
                   : Text(
                       '${smallAlphabets[count]}',
                       style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 60,
+                          color: Colors.blue,
+                          fontSize: 120,
                           fontWeight: FontWeight.w600),
                     ),
               const SizedBox(
                 height: 120,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  FloatingActionButton(
-                      elevation: 20,
-                      backgroundColor: Colors.white70,
-                      child: const Icon(
-                        Icons.forward,
-                        color: Colors.amberAccent,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          if (count < CapitalAlphabets.length - 1) {
-                            count--;
-                            seconds = 5;
-                            startTimer();
-                          }
-                        });
-                      }),
-                  const SizedBox(
-                    width: 120,
-                  ),
-                  FloatingActionButton(
-                      elevation: 20,
-                      backgroundColor: Colors.white70,
-                      child: const Icon(
-                        Icons.forward,
-                        color: Colors.amberAccent,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          if (count < CapitalAlphabets.length - 1) {
-                            count++;
-                            seconds = 5;
-                            startTimer();
-                          }
-                        });
-                      }),
-                ],
               ),
               num == false
                   ? FloatingActionButton(
@@ -243,7 +344,7 @@ class _PlayScreenState extends State<PlayScreen> {
                           num = true;
                         });
                       })
-                  : Container()
+                  : Container(),
               //  FloatingActionButton(
               //     elevation: 20,
               //     backgroundColor: Colors.green,
@@ -254,7 +355,30 @@ class _PlayScreenState extends State<PlayScreen> {
               //         // seconds = 5;
               //         num = false;
               //       });
-              //     })
+              //     }),
+              const SizedBox(
+                height: 14,
+                child: Divider(
+                  color: Colors.black,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0, right: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Alphabets Read: $alphacount',
+                      style: const TextStyle(
+                          color: Colors.teal,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400),
+                    ),
+
+                  ],
+                ),
+              ),
             ],
           ),
         ));

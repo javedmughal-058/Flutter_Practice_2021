@@ -40,10 +40,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: Drawer(
+        // Add a ListView to the drawer. This ensures the user can scroll
+        // through the options in the drawer if there isn't enough vertical
+        // space to fit everything.
         child: ListView(
-          children: const [
-            DrawerHeader(
-                decoration: BoxDecoration(color: Colors.amberAccent),
+          // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: [
+              const DrawerHeader(
                 child: CircleAvatar(
                   radius: 40,
                   backgroundColor: Colors.white70,
@@ -51,8 +55,109 @@ class _MyHomePageState extends State<MyHomePage> {
                     radius: 74,
                     backgroundImage: AssetImage('images/download.png'),
                   ),
-                ))
-          ],
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.orange,
+                ),
+              ),
+
+              ListTile(
+                title: const Text('Home',
+                  style: TextStyle(
+                    color: Colors.orange,
+                    fontSize: 16.0,
+                  ),
+                ),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+              const SizedBox(
+                height: 10,
+                child: Divider(
+                  color: Colors.black,
+                ),
+              ),
+              ListTile(
+                title: const Text('Account',
+                  style: TextStyle(
+                    color: Colors.orange,
+                    fontSize: 16.0,
+                  ),),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+              const SizedBox(
+                height: 10,
+                child: Divider(
+                  color: Colors.black,
+                ),
+              ),
+              ListTile(
+                title: const Text('Setting',
+                  style: TextStyle(
+                    color: Colors.orange,
+                    fontSize: 16.0,
+                  ),),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+              const SizedBox(
+                height: 10,
+                child: Divider(
+                  color: Colors.black,
+                ),
+              ),
+              ListTile(
+                title: const Text('About us',
+                  style: TextStyle(
+                    color: Colors.orange,
+                    fontSize: 16.0,
+                  ),),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+              const SizedBox(
+                height: 10,
+                child: Divider(
+                  color: Colors.black,
+                ),
+              ),
+              ListTile(
+                title: const Text('App info',
+                  style: TextStyle(
+                    color: Colors.orange,
+                    fontSize: 16.0,
+                  ),),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+              const SizedBox(
+                height: 10,
+                child: Divider(
+                  color: Colors.black,
+                ),
+              ),
+            ]
         ),
       ),
       appBar: AppBar(
