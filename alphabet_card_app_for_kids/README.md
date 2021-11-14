@@ -1,7 +1,8 @@
 # alphabet_card_app_for_kids
 
-A new Flutter project.
+A new Flutter project For Kids.
+Apk is available in apk_folder:
 
-![](ScreenShots/S1.png)
-![](ScreenShots/S2.png)
-![](ScreenShots/S3.png)
+
+
+
