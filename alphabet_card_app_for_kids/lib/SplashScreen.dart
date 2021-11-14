@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(33, 44, 59, 1),
+      backgroundColor: Colors.orange,
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -35,14 +35,16 @@ class _SplashScreenState extends State<SplashScreen> {
               SizedBox(
                 width: MediaQuery.of(context).size.width / 3,
                 height: MediaQuery.of(context).size.height / 2,
-                child: Image.asset(
-                  'images/card.png',
-                ),
+                child: CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Colors.white70,
+                  child: CircleAvatar(
+                    radius: 74,
+                    backgroundImage: AssetImage('images/download.png'),
+                  ),
               ),
-              const CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
               )
-            ],
+            ]
           ),
         ),
       ),

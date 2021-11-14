@@ -1,4 +1,4 @@
-import 'package:alphabet_card_app/PlayScreen.dart';
+import 'package:alphabet_card_app_for_kids/PlayScreen.dart';
 import 'package:flutter/material.dart';
 
 import 'SplashScreen.dart';
@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Kids App',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.orange,
       ),
       home: const SplashScreen(),
     );
@@ -38,31 +38,37 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightGreen,
+      backgroundColor: Colors.white,
       drawer: Drawer(
         child: ListView(
           children: const [
             DrawerHeader(
-                decoration: BoxDecoration(color: Colors.lightGreen),
+                decoration: BoxDecoration(color: Colors.amberAccent),
                 child: CircleAvatar(
                   radius: 40,
                   backgroundColor: Colors.white70,
                   child: CircleAvatar(
-                    radius: 44,
-                    backgroundImage: AssetImage('images/card.png'),
+                    radius: 74,
+                    backgroundImage: AssetImage('images/download.png'),
                   ),
                 ))
           ],
         ),
       ),
       appBar: AppBar(
-        title: Text('Home Screen'),
+        title: Text('Alphabets App for kids'),
       ),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text('Select Your Choice.',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue),
+              textAlign: TextAlign.center,),
             GestureDetector(
                 onTap: () {
                   alphaCase = true;
@@ -74,18 +80,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: Colors.white70,
+                      color: Colors.amberAccent,
                     ),
-                    height: 75,
-                    width: 250,
+                    height: 60,
+                    width: 230,
                     child: const Padding(
                       padding: EdgeInsets.all(12.0),
                       child: Text(
                         'Capital A-Z',
                         style: TextStyle(
-                            fontSize: 40,
+                            fontSize: 26,
                             fontWeight: FontWeight.bold,
-                            color: Colors.lightGreen),
+                            color: Colors.black),
                         textAlign: TextAlign.center,
                       ),
                     ))),
@@ -103,18 +109,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: Colors.white70,
+                      color: Colors.amberAccent,
                     ),
-                    height: 75,
-                    width: 250,
+                    height: 60,
+                    width: 230,
                     child: const Padding(
                       padding: EdgeInsets.all(12.0),
                       child: Text(
                         'Small a-z',
                         style: TextStyle(
-                            fontSize: 40,
+                            fontSize: 26,
                             fontWeight: FontWeight.bold,
-                            color: Colors.lightGreen),
+                            color: Colors.black),
                         textAlign: TextAlign.center,
                       ),
                     ))),

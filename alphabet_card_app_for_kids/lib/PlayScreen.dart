@@ -2,7 +2,7 @@
 
 import 'dart:async';
 
-import 'package:alphabet_card_app/main.dart';
+import 'package:alphabet_card_app_for_kids/main.dart';
 import 'package:flutter/material.dart';
 
 class PlayScreen extends StatefulWidget {
@@ -12,7 +12,7 @@ class PlayScreen extends StatefulWidget {
   _PlayScreenState createState() => _PlayScreenState();
 }
 
-List<String> capitalAlpha = [
+List<String> CapitalAlphabets = [
   'A',
   'B',
   'C',
@@ -40,7 +40,7 @@ List<String> capitalAlpha = [
   'Y',
   'Z',
 ];
-List<String> smallAlpha = [
+List<String> smallAlphabets = [
   'a',
   'b',
   'c',
@@ -101,7 +101,7 @@ class _PlayScreenState extends State<PlayScreen> {
             // ignore: avoid_print
             print('Timer is completed');
             setState(() {
-              if (count < capitalAlpha.length - 1) {
+              if (count < CapitalAlphabets.length - 1) {
                 count++;
                 seconds = 5;
                 startTimer();
@@ -116,12 +116,12 @@ class _PlayScreenState extends State<PlayScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: Colors.amberAccent,
         drawer: Drawer(
           child: ListView(
             children: const [
               DrawerHeader(
-                  decoration: BoxDecoration(color: Colors.lightGreen),
+                  decoration: BoxDecoration(color: Colors.amberAccent),
                   child: CircleAvatar(
                     radius: 40,
                     backgroundColor: Colors.white70,
@@ -173,14 +173,14 @@ class _PlayScreenState extends State<PlayScreen> {
               ),
               alphaCase == true
                   ? Text(
-                      '${capitalAlpha[count]}',
+                      '${CapitalAlphabets[count]}',
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 60,
                           fontWeight: FontWeight.w600),
                     )
                   : Text(
-                      '${smallAlpha[count]}',
+                      '${smallAlphabets[count]}',
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 60,
@@ -198,11 +198,11 @@ class _PlayScreenState extends State<PlayScreen> {
                       backgroundColor: Colors.white70,
                       child: const Icon(
                         Icons.forward,
-                        color: Colors.lightGreen,
+                        color: Colors.amberAccent,
                       ),
                       onPressed: () {
                         setState(() {
-                          if (count < capitalAlpha.length - 1) {
+                          if (count < CapitalAlphabets.length - 1) {
                             count--;
                             seconds = 5;
                             startTimer();
@@ -217,11 +217,11 @@ class _PlayScreenState extends State<PlayScreen> {
                       backgroundColor: Colors.white70,
                       child: const Icon(
                         Icons.forward,
-                        color: Colors.lightGreen,
+                        color: Colors.amberAccent,
                       ),
                       onPressed: () {
                         setState(() {
-                          if (count < capitalAlpha.length - 1) {
+                          if (count < CapitalAlphabets.length - 1) {
                             count++;
                             seconds = 5;
                             startTimer();
