@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'account.dart';
-import 'play1.dart';
+import '../play1.dart';
 import 'setting.dart';
-import 'play.dart';
+import '../play.dart';
 
 
 class HomeScreen extends StatefulWidget {

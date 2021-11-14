@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'screens/account.dart';
 import 'screens/home.dart';
 import 'screens/setting.dart';
-import 'screens/play.dart';
+import 'play.dart';
 
 
 void main() {
