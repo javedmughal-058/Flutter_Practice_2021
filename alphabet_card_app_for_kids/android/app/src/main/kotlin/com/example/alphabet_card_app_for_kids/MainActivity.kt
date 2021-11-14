@@ -1,4 +1,4 @@
-package com.example.alphabet_card_app_for_kids
+package com.example.dice_app
 
 import io.flutter.embedding.android.FlutterActivity
 

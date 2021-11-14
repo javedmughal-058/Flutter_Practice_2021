@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.alphabet_card_app_for_kids">
+    package="com.example.dice_app">
    <application
-        android:label="alphabet_card_app_for_kids"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Alphabets app for kids"
+        android:icon="@drawable/download">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

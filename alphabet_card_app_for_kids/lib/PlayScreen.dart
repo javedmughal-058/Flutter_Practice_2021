@@ -269,7 +269,7 @@ class _PlayScreenState extends State<PlayScreen> {
                             });
                           }),
                       const SizedBox(
-                        width: 320,
+                        width: 220,
                       ),
                       FloatingActionButton(
                           elevation: 20,
@@ -293,7 +293,7 @@ class _PlayScreenState extends State<PlayScreen> {
               Row(
                 children: [
                   const SizedBox(
-                    width: 24,
+                    width: 17,
                   ),
                   Text('Previous',
                     style: const TextStyle(
@@ -301,7 +301,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         fontSize: 20,
                         fontWeight: FontWeight.w400),),
                   const SizedBox(
-                    width: 320,
+                    width: 210,
                   ),
                   Text('Next',
                     style: const TextStyle(
