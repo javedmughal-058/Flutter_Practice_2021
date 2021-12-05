@@ -1,4 +1,4 @@
-package com.example.flutter_learning_2021
+package com.example.counter_app
 
 import io.flutter.embedding.android.FlutterActivity
 
