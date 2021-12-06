@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "550276959226",
+    "project_id": "fir-login-signup-7dbfc",
+    "storage_bucket": "fir-login-signup-7dbfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550276959226:android:77a00f66f4a5c23cfcb243",
+        "android_client_info": {
+          "package_name": "com.example.signup_login_wirh_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550276959226-uk0s9t8idbmmd93fhoblvd77ldpcu7il.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx_xq2yww_h9tWKY48RblJp6koPSeSdRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550276959226-uk0s9t8idbmmd93fhoblvd77ldpcu7il.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
