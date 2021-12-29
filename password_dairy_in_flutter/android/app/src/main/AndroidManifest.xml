@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.password_dairy_in_flutter">
    <application
-        android:label="password_dairy_in_flutter"
+        android:label="password_dairy"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
