@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "708611133227",
+    "project_id": "password-diary-d83c4",
+    "storage_bucket": "password-diary-d83c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708611133227:android:2d282034b86191d7a33f6e",
+        "android_client_info": {
+          "package_name": "com.example.password_dairy_in_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708611133227-ftblh1ucskmthf46k8orsus7sqn2rnn4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0ArdczGed6dh6cOxpgVgqKcixMDa_8lU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708611133227-ftblh1ucskmthf46k8orsus7sqn2rnn4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
